@@ -1,0 +1,42 @@
+{
+    "name": "biubiujun\/laravel-yunxin",
+    "description": "网易云信 SDK for Laravel.",
+    "keywords": [
+        "laravel",
+        "yunxin",
+        "网易云信",
+        "云信",
+        "im"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "biubiujun",
+            "email": "me@zhangchaojun.cn"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.3",
+        "illuminate/container": "^5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "mockery/mockery": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Biubiujun\\Yunxin\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Biubiujun\\Yunxin\\YunxinServiceProvider"
+            ]
+        }
+    }
+}
