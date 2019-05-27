@@ -66,11 +66,7 @@ class HttpClient
         $response = json_decode($content, true, 512, JSON_BIGINT_AS_STRING);
 
         if (JSON_ERROR_NONE === json_last_error()) {
-            if (200 == $response['code']) {
-                return $response;
-            }
-
-            throw new InvalidResponseException('Yunxin response code must be 200: ' . $response['desc'], $response['code']);
+            return $response;
         } else {
             throw new InvalidResponseException('Yunxin response body must be json: ' . $response);
         }

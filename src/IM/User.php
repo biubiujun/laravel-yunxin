@@ -2,10 +2,10 @@
 
 namespace Biubiujun\Yunxin\IM;
 
-use Biubiujun\Yunxin\AbstractIM;
+use Biubiujun\Yunxin\IM;
 use Biubiujun\Yunxin\IM\Parameters\UserParameters;
 
-class User extends AbstractIM
+class User extends IM
 {
     use UserParameters;
 

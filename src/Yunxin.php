@@ -2,17 +2,17 @@
 
 namespace Biubiujun\Yunxin;
 
-use Biubiujun\Yunxin\HttpClient;
+use Biubiujun\Yunxin\Contracts\YunxinContract;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
-abstract class AbstractIM
+abstract class Yunxin implements YunxinContract
 {
     const ALPHABET = 'abcdefghijklmnopqrstuvwxyz1234567890';
 
     /**
      * @var string
      */
-    protected $baseUri = 'https://api.netease.im/nimserver/';
+    protected $baseUri = '';
 
     /**
      * @var \Biubiujun\Yunxin\HttpClient
@@ -44,16 +44,6 @@ abstract class AbstractIM
         $this->parameters = new ParameterBag;
     }
 
-    /**
-     * @param string $uri
-     * @return array
-     * @throws \Biubiujun\Yunxin\Exceptions\HttpException
-     * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
-     */
-    public function request(string $uri): array
-    {
-        return $this->httpClient->request($uri, ['form_params' => array_filter($this->getParameters())]);
-    }
 
     /**
      * @return array

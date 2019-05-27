@@ -2,10 +2,10 @@
 
 namespace Biubiujun\Yunxin\IM;
 
-use Biubiujun\Yunxin\AbstractIM;
+use Biubiujun\Yunxin\IM;
 use Biubiujun\Yunxin\IM\Parameters\ChatRoomParameters;
 
-class ChatRoom extends AbstractIM
+class ChatRoom extends IM
 {
     use ChatRoomParameters;
 

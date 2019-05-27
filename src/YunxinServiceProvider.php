@@ -3,7 +3,8 @@
 namespace Biubiujun\Yunxin;
 
 use Biubiujun\Yunxin\IM\ChatRoom;
-use Biubiujun\Yunxin\IM\User;
+use Biubiujun\Yunxin\IM\User as IMUser;
+use Biubiujun\Yunxin\VOD\User as VODUser;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
@@ -43,11 +44,11 @@ class YunxinServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerUser();
-        $this->registerChatRoom();
+        $this->registerUserOfIM();
+        $this->registerChatRoomOfIM();
     }
 
-    protected function registerUser()
+    protected function registerUserOfIM()
     {
         $this->app->singleton('yunxin.im.user', function (Container $app) {
             $config = $app['config'];
@@ -58,12 +59,22 @@ class YunxinServiceProvider extends ServiceProvider
         $this->app->alias('yunxin.im.user', User::class);
     }
 
-    protected function registerChatRoom()
+    protected function registerChatRoomOfIM()
     {
         $this->app->singleton('yunxin.im.chat_room', function (Container $app) {
             $config = $app['config'];
 
             return new ChatRoom($config);
+        });
+
+        $this->app->alias('yunxin.im.chat_room', ChatRoom::class);
+    }
+    protected function registerUserOfVOD()
+    {
+        $this->app->singleton('yunxin.vod.chat_room', function (Container $app) {
+            $config = $app['config'];
+
+            return new VODUser($config);
         });
 
         $this->app->alias('yunxin.im.chat_room', ChatRoom::class);
@@ -74,6 +85,7 @@ class YunxinServiceProvider extends ServiceProvider
         return [
             'yunxin.im.user',
             'yunxin.im.chat_room',
+            'yunxin.vod.user',
         ];
     }
 }

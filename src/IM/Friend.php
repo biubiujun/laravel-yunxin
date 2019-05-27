@@ -2,10 +2,10 @@
 
 namespace Biubiujun\Yunxin\IM;
 
-use Biubiujun\Yunxin\AbstractIM;
+use Biubiujun\Yunxin\IM;
 use Biubiujun\Yunxin\IM\Parameters\FriendParameters;
 
-class Friend extends AbstractIM
+class Friend extends IM
 {
     use FriendParameters;
 

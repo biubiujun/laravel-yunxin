@@ -2,10 +2,10 @@
 
 namespace Biubiujun\Yunxin\IM;
 
-use Biubiujun\Yunxin\AbstractIM;
+use Biubiujun\Yunxin\IM;
 use Biubiujun\Yunxin\IM\Parameters\MsgParameters;
 
-class Msg extends AbstractIM
+class Msg extends IM
 {
     use MsgParameters;
 

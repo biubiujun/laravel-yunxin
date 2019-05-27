@@ -2,10 +2,10 @@
 
 namespace Biubiujun\Yunxin\IM;
 
-use Biubiujun\Yunxin\AbstractIM;
+use Biubiujun\Yunxin\IM;
 use Biubiujun\Yunxin\IM\Parameters\HistoryParameters;
 
-class History extends AbstractIM
+class History extends IM
 {
     use HistoryParameters;
 
