@@ -10,7 +10,7 @@ trait TranscodeParameters
      */
     public function setVids(array $vids)
     {
-        return $this->setParameter('vids', json_encode($vids));
+        return $this->setParameter('vids', $vids);
     }
 
     /**

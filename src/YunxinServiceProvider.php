@@ -4,7 +4,10 @@ namespace Biubiujun\Yunxin;
 
 use Biubiujun\Yunxin\IM\ChatRoom;
 use Biubiujun\Yunxin\IM\User as IMUser;
+use Biubiujun\Yunxin\VOD\Encrypt;
+use Biubiujun\Yunxin\VOD\Transcode;
 use Biubiujun\Yunxin\VOD\User as VODUser;
+use Biubiujun\Yunxin\VOD\Video;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
@@ -44,40 +47,55 @@ class YunxinServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerUserOfIM();
-        $this->registerChatRoomOfIM();
+        $this->registerIM();
+
+        $this->registerVOD();
     }
 
-    protected function registerUserOfIM()
+    protected function registerIM()
     {
         $this->app->singleton('yunxin.im.user', function (Container $app) {
             $config = $app['config'];
 
-            return new User($config);
+            return new IMUser($config);
         });
-
-        $this->app->alias('yunxin.im.user', User::class);
-    }
-
-    protected function registerChatRoomOfIM()
-    {
         $this->app->singleton('yunxin.im.chat_room', function (Container $app) {
             $config = $app['config'];
 
             return new ChatRoom($config);
         });
 
+        $this->app->alias('yunxin.im.user', IMUser::class);
         $this->app->alias('yunxin.im.chat_room', ChatRoom::class);
     }
-    protected function registerUserOfVOD()
+
+    protected function registerVOD()
     {
-        $this->app->singleton('yunxin.vod.chat_room', function (Container $app) {
+        $this->app->singleton('yunxin.vod.user', function (Container $app) {
             $config = $app['config'];
 
             return new VODUser($config);
         });
+        $this->app->singleton('yunxin.vod.transcode', function (Container $app) {
+            $config = $app['config'];
 
-        $this->app->alias('yunxin.im.chat_room', ChatRoom::class);
+            return new Transcode($config);
+        });
+        $this->app->singleton('yunxin.vod.video', function (Container $app) {
+            $config = $app['config'];
+
+            return new Video($config);
+        });
+        $this->app->singleton('yunxin.vod.encrypt', function (Container $app) {
+            $config = $app['config'];
+
+            return new Encrypt($config);
+        });
+
+        $this->app->alias('yunxin.vod.user', VODUser::class);
+        $this->app->alias('yunxin.vod.transcode', Transcode::class);
+        $this->app->alias('yunxin.vod.video', Video::class);
+        $this->app->alias('yunxin.vod.encrypt', Encrypt::class);
     }
 
     public function provides()

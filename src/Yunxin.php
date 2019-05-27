@@ -34,6 +34,8 @@ abstract class Yunxin implements YunxinContract
      */
     public function __construct($config)
     {
+        $this->setBaseUri();
+
         $this->httpClient = new HttpClient(
             $config->get('yunxin.app_key'),
             $config->get('yunxin.app_secret'),

@@ -3,7 +3,6 @@
 namespace Biubiujun\Yunxin;
 
 use Biubiujun\Yunxin\Exceptions\InvalidResponseException;
-use Biubiujun\Yunxin\HttpClient;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 abstract class IM extends Yunxin
