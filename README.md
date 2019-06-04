@@ -39,22 +39,42 @@ $app->register(Biubiujun\Yunxin\YunxinServiceProvider::class);
 
 ### 用户
 
+> 支持所有用户类接口  
+> 方法名为网易云信中接口名    
+> 创建网易云信通信ID https://api.netease.im/nimserver/user/create.action
+
 ```php
-// 创建用户
 YunxinIM::user()
     ->setAccId($accId)
     ->setName($name)
     ->setIcon($icon)
     ->create();
 ```
+or
+```php
+YunxinIM::user()
+    ->setParameter('accid', $accId)
+    ->setParameter('name', $name)
+    ->setParameter('icon', $icon)
+    ->create();
+```
 
 ### 聊天室
 
+> 创建聊天室 https://api.netease.im/nimserver/chatroom/create.action
+
 ```php
-// 创建聊天室
 YunxinIM::chatRoom()
     ->setCreator($creator)
     ->setName($name)
     ->setAnnouncement($announcement)
+    ->create();
+```
+or
+```php
+YunxinIM::chatRoom()
+    ->setParameter('creator', $creator)
+    ->setParameter('name', $name)
+    ->setParameter('announcement', $announcement)
     ->create();
 ```
