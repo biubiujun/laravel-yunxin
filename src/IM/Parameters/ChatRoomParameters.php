@@ -59,6 +59,15 @@ trait ChatRoomParameters
     }
 
     /**
+     * @param int $roomIds
+     * @return \Biubiujun\Yunxin\IM\ChatRoom
+     */
+    public function setRoomIds(int $roomIds)
+    {
+        return $this->setParameter('roomids', $roomIds);
+    }
+
+    /**
      * @param string $needOnlineUserCount
      * @return \Biubiujun\Yunxin\IM\ChatRoom
      */

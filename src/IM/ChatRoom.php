@@ -38,6 +38,20 @@ class ChatRoom extends IM
     }
 
     /**
+     * 批量查询聊天室信息
+     *
+     * @return array
+     * @throws \Biubiujun\Yunxin\Exceptions\HttpException
+     * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
+     */
+    public function getBatch(): array
+    {
+        $response = $this->request('chatroom/getBatch.action');
+
+        return $response;
+    }
+
+    /**
      * 更新聊天室信息
      *
      * @return array
@@ -63,6 +77,20 @@ class ChatRoom extends IM
         $response = $this->request('chatroom/toggleCloseStat.action');
 
         return $response['chatroom'];
+    }
+
+    /**
+     * 设置聊天室内用户角色
+     *
+     * @return array
+     * @throws \Biubiujun\Yunxin\Exceptions\HttpException
+     * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
+     */
+    public function setMemberRole(): array
+    {
+        $response = $this->request('chatroom/setMemberRole.action');
+
+        return $response['desc'];
     }
 
     /**
@@ -273,5 +301,33 @@ class ChatRoom extends IM
         $this->request('chatroom/updateMyRoomRole.action');
 
         return true;
+    }
+
+    /**
+     * 批量更新聊天室队列元素
+     *
+     * @return bool
+     * @throws \Biubiujun\Yunxin\Exceptions\HttpException
+     * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
+     */
+    public function queueBatchUpdateElements(): bool
+    {
+        $response = $this->request('chatroom/queueBatchUpdateElements.action');
+
+        return $response['desc'];
+    }
+
+    /**
+     * 查询用户创建的开启状态聊天室列表
+     *
+     * @return bool
+     * @throws \Biubiujun\Yunxin\Exceptions\HttpException
+     * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
+     */
+    public function queryUserRoomIds(): bool
+    {
+        $response = $this->request('chatroom/queryUserRoomIds.action');
+
+        return $response['desc'];
     }
 }
