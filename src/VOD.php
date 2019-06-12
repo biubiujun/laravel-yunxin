@@ -2,7 +2,6 @@
 
 namespace Biubiujun\Yunxin;
 
-use Biubiujun\Yunxin\Exceptions\InvalidResponseException;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 abstract class VOD extends Yunxin
@@ -23,12 +22,6 @@ abstract class VOD extends Yunxin
      */
     public function request(string $uri): array
     {
-        $response = $this->httpClient->request($uri, ['json' => array_filter($this->getParameters())]);
-
-        if (200 == $response['code']) {
-            return $response;
-        }
-
-        throw new InvalidResponseException('Yunxin response code must be 200: ' . $response['msg'], $response['code']);
+        return $this->httpClient->request($uri, ['json' => array_filter($this->getParameters())]);
     }
 }
