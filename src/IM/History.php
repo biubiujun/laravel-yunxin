@@ -16,8 +16,6 @@ class History extends IM
      */
     public function querySessionMsg(): array
     {
-        $response = $this->request('history/querySessionMsg.action');
-
-        return $response;
+        return $this->request('history/querySessionMsg.action');
     }
 }

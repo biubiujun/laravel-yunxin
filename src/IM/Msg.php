@@ -10,14 +10,12 @@ class Msg extends IM
     use MsgParameters;
 
     /**
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function sendMsg(): bool
+    public function sendMsg(): array
     {
-        $this->request('msg/sendMsg.action');
-
-        return true;
+        return $this->request('msg/sendMsg.action');
     }
 }

@@ -18,23 +18,19 @@ class User extends IM
      */
     public function create(): array
     {
-        $response = $this->request('user/create.action');
-
-        return $response['info'];
+        return $this->request('user/create.action');
     }
 
     /**
      * 网易云通信ID更新
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function update(): bool
+    public function update(): array
     {
-        $this->request('user/update.action');
-
-        return true;
+        return $this->request('user/update.action');
     }
 
     /**
@@ -46,23 +42,19 @@ class User extends IM
      */
     public function refreshToken(): array
     {
-        $response = $this->request('user/refreshToken.action');
-
-        return $response['info'];
+        return $this->request('user/refreshToken.action');
     }
 
     /**
      * 更新用户名片
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function updateUinfo(): bool
+    public function updateUinfo(): array
     {
-        $this->request('user/updateUinfo.action');
-
-        return true;
+        return $this->request('user/updateUinfo.action');
     }
 
     /**
@@ -74,65 +66,55 @@ class User extends IM
      */
     public function getUinfos(): array
     {
-        $response = $this->request('user/getUinfos.action');
-
-        return $response['uinfos'];
+        return $this->request('user/getUinfos.action');
     }
 
     /**
      * 封禁网易云通信ID
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function block(): bool
+    public function block(): array
     {
-        $this->request('user/block.action');
-
-        return true;
+        return $this->request('user/block.action');
     }
 
     /**
      * 解禁网易云通信ID
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function unblock(): bool
+    public function unblock(): array
     {
-        $this->request('user/unblock.action');
-
-        return true;
+        return $this->request('user/unblock.action');
     }
 
     /**
      * 设置桌面端在线时，移动端是否需要推送
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function setDonnop(): bool
+    public function setDonnop(): array
     {
-        $this->request('user/setDonnop.action');
-
-        return true;
+        return $this->request('user/setDonnop.action');
     }
 
     /**
      * 设置黑名单/静音
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function setSpecialRelation(): bool
+    public function setSpecialRelation(): array
     {
-        $this->request('user/setSpecialRelation.action');
-
-        return true;
+        return $this->request('user/setSpecialRelation.action');
     }
 
     /**
@@ -144,8 +126,6 @@ class User extends IM
      */
     public function listBlackAndMuteList(): array
     {
-        $response = $this->request('user/listBlackAndMuteList.action');
-
-        return $response;
+        return $this->request('user/listBlackAndMuteList.action');
     }
 }

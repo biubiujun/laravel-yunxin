@@ -12,43 +12,37 @@ class Friend extends IM
     /**
      * 加好友
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function add()
+    public function add(): array
     {
-        $this->request('friend/add.action');
-
-        return true;
+        return $this->request('friend/add.action');
     }
 
     /**
      * 更新好友相关信息
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function update()
+    public function update(): array
     {
-        $this->request('friend/update.action');
-
-        return true;
+        return $this->request('friend/update.action');
     }
 
     /**
      * 删除好友
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function delete()
+    public function delete(): array
     {
-        $this->request('friend/delete.action');
-
-        return true;
+        return $this->request('friend/delete.action');
     }
 
     /**
@@ -58,10 +52,8 @@ class Friend extends IM
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function get()
+    public function get(): array
     {
-        $response = $this->request('friend/get.action');
-
-        return $response;
+        return $this->request('friend/get.action');
     }
 }

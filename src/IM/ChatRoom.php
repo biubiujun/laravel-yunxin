@@ -18,9 +18,7 @@ class ChatRoom extends IM
      */
     public function create(): array
     {
-        $response = $this->request('chatroom/create.action');
-
-        return $response['chatroom'];
+        return $this->request('chatroom/create.action');
     }
 
     /**
@@ -32,9 +30,7 @@ class ChatRoom extends IM
      */
     public function get(): array
     {
-        $response = $this->request('chatroom/get.action');
-
-        return $response['chatroom'];
+        return $this->request('chatroom/get.action');
     }
 
     /**
@@ -46,9 +42,7 @@ class ChatRoom extends IM
      */
     public function getBatch(): array
     {
-        $response = $this->request('chatroom/getBatch.action');
-
-        return $response;
+        return $this->request('chatroom/getBatch.action');
     }
 
     /**
@@ -60,9 +54,7 @@ class ChatRoom extends IM
      */
     public function update(): array
     {
-        $response = $this->request('chatroom/update.action');
-
-        return $response['chatroom'];
+        return $this->request('chatroom/update.action');
     }
 
     /**
@@ -74,9 +66,7 @@ class ChatRoom extends IM
      */
     public function toggleCloseStat(): array
     {
-        $response = $this->request('chatroom/toggleCloseStat.action');
-
-        return $response['chatroom'];
+        return $this->request('chatroom/toggleCloseStat.action');
     }
 
     /**
@@ -88,9 +78,7 @@ class ChatRoom extends IM
      */
     public function setMemberRole(): array
     {
-        $response = $this->request('chatroom/setMemberRole.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/setMemberRole.action');
     }
 
     /**
@@ -102,9 +90,7 @@ class ChatRoom extends IM
      */
     public function requestAddr(): array
     {
-        $response = $this->request('chatroom/requestAddr.action');
-
-        return $response['addr'];
+        return $this->request('chatroom/requestAddr.action');
     }
 
     /**
@@ -116,9 +102,7 @@ class ChatRoom extends IM
      */
     public function sendMsg(): array
     {
-        $response = $this->request('chatroom/sendMsg.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/sendMsg.action');
     }
 
     /**
@@ -130,9 +114,7 @@ class ChatRoom extends IM
      */
     public function addRobot(): array
     {
-        $response = $this->request('chatroom/addRobot.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/addRobot.action');
     }
 
     /**
@@ -144,9 +126,7 @@ class ChatRoom extends IM
      */
     public function removeRobot(): array
     {
-        $response = $this->request('chatroom/removeRobot.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/removeRobot.action');
     }
 
     /**
@@ -158,9 +138,7 @@ class ChatRoom extends IM
      */
     public function temporaryMute(): array
     {
-        $response = $this->request('chatroom/temporaryMute.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/temporaryMute.action');
     }
 
     /**
@@ -172,9 +150,7 @@ class ChatRoom extends IM
      */
     public function queueOffer(): array
     {
-        $response = $this->request('chatroom/queueOffer.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queueOffer.action');
     }
 
     /**
@@ -186,9 +162,7 @@ class ChatRoom extends IM
      */
     public function queuePoll(): array
     {
-        $response = $this->request('chatroom/queuePoll.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queuePoll.action');
     }
 
     /**
@@ -200,9 +174,7 @@ class ChatRoom extends IM
      */
     public function queueList(): array
     {
-        $response = $this->request('chatroom/queueList.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queueList.action');
     }
 
     /**
@@ -214,9 +186,7 @@ class ChatRoom extends IM
      */
     public function queueDrop(): array
     {
-        $response = $this->request('chatroom/queueDrop.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queueDrop.action');
     }
 
     /**
@@ -228,9 +198,7 @@ class ChatRoom extends IM
      */
     public function queueInit(): array
     {
-        $response = $this->request('chatroom/queueInit.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queueInit.action');
     }
 
     /**
@@ -242,9 +210,7 @@ class ChatRoom extends IM
      */
     public function muteRoom(): array
     {
-        $response = $this->request('chatroom/muteRoom.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/muteRoom.action');
     }
 
     /**
@@ -256,9 +222,7 @@ class ChatRoom extends IM
      */
     public function topn(): array
     {
-        $response = $this->request('chatroom/topn.action');
-
-        return $response['data'];
+        return $this->request('chatroom/topn.action');
     }
 
     /**
@@ -270,9 +234,7 @@ class ChatRoom extends IM
      */
     public function membersByPage(): array
     {
-        $response = $this->request('chatroom/membersByPage.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/membersByPage.action');
     }
 
     /**
@@ -284,19 +246,17 @@ class ChatRoom extends IM
      */
     public function queryMembers(): array
     {
-        $response = $this->request('chatroom/queryMembers.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queryMembers.action');
     }
 
     /**
      * 变更聊天室内的角色信息
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function updateMyRoomRole(): bool
+    public function updateMyRoomRole(): array
     {
         $this->request('chatroom/updateMyRoomRole.action');
 
@@ -306,28 +266,24 @@ class ChatRoom extends IM
     /**
      * 批量更新聊天室队列元素
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function queueBatchUpdateElements(): bool
+    public function queueBatchUpdateElements(): array
     {
-        $response = $this->request('chatroom/queueBatchUpdateElements.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queueBatchUpdateElements.action');
     }
 
     /**
      * 查询用户创建的开启状态聊天室列表
      *
-     * @return bool
+     * @return array
      * @throws \Biubiujun\Yunxin\Exceptions\HttpException
      * @throws \Biubiujun\Yunxin\Exceptions\InvalidResponseException
      */
-    public function queryUserRoomIds(): bool
+    public function queryUserRoomIds(): array
     {
-        $response = $this->request('chatroom/queryUserRoomIds.action');
-
-        return $response['desc'];
+        return $this->request('chatroom/queryUserRoomIds.action');
     }
 }
