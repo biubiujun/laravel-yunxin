@@ -320,19 +320,19 @@ trait ChatRoomParameters
     }
 
     /**
-     * @param string $endTime
+     * @param int $endTime
      * @return \Biubiujun\Yunxin\IM\ChatRoom
      */
-    public function setEndTime(string $endTime)
+    public function setEndTime(int $endTime)
     {
         return $this->setParameter('endtime', $endTime);
     }
 
     /**
-     * @param string $limit
+     * @param int $limit
      * @return \Biubiujun\Yunxin\IM\ChatRoom
      */
-    public function setLimit(string $limit)
+    public function setLimit(int $limit)
     {
         return $this->setParameter('limit', $limit);
     }

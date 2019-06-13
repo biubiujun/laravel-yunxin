@@ -22,6 +22,6 @@ abstract class IM extends Yunxin
      */
     public function request(string $uri): array
     {
-        return $this->httpClient->request($uri, ['form_params' => array_filter($this->getParameters())]);
+        return $this->httpClient->request($uri, ['form_params' => $this->getParameters()]);
     }
 }
